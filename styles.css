@@ -1,0 +1,111 @@
+/* HYBRID AESTHETIC: Gold + Opal + Iridescent Edge */
+
+body {
+margin: 0;
+font-family: 'Segoe UI', sans-serif;
+background: radial-gradient(circle at top, #ffffff, #0d0d0f);
+color: white;
+overflow-x: hidden;
+}
+
+.hero {
+text-align: center;
+padding: 120px 20px;
+background: linear-gradient(
+140deg,
+rgba(255, 215, 0, 0.4),
+rgba(255, 255, 255, 0.3),
+rgba(180, 143, 255, 0.25),
+rgba(0, 255, 255, 0.2)
+);
+background-size: 300% 300%;
+animation: holoFlow 12s ease infinite;
+}
+
+@keyframes holoFlow {
+0% { background-position: 0% 30%; }
+50% { background-position: 100% 70%; }
+100% { background-position: 0% 30%; }
+}
+
+.drip-title {
+font-size: 6rem;
+font-weight: 900;
+letter-spacing: 10px;
+background: linear-gradient(
+to right,
+#ffd700,
+#ffffff,
+#b58aff,
+#00eaff
+);
+-webkit-background-clip: text;
+color: transparent;
+text-shadow: 0 0 18px rgba(255,255,255,0.3);
+}
+
+.subtitle {
+font-size: 1.6rem;
+opacity: 0.85;
+margin-top: 10px;
+}
+
+.cta {
+display: inline-block;
+margin-top: 30px;
+padding: 14px 38px;
+font-size: 1.2rem;
+border-radius: 50px;
+background: linear-gradient(120deg, #ffd700, #feffff, #b48aff);
+box-shadow: 0 0 15px rgba(255,255,255,0.4);
+text-decoration: none;
+color: #0a0a0a;
+font-weight: bold;
+transition: 0.3s;
+}
+
+.cta:hover {
+transform: scale(1.06);
+box-shadow: 0 0 25px rgba(255,255,255,0.7);
+}
+
+.features {
+padding: 90px 10%;
+text-align: center;
+}
+
+.features h2 {
+font-size: 3rem;
+margin-bottom: 40px;
+background: linear-gradient(to right, #ffd700, #b48aff, #00eaff);
+-webkit-background-clip: text;
+color: transparent;
+}
+
+.feature-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+gap: 30px;
+}
+
+.feature-card {
+padding: 30px;
+background: rgba(255, 255, 255, 0.05);
+border-radius: 20px;
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255,255,255,0.1);
+transition: 0.3s;
+}
+
+.feature-card:hover {
+transform: translateY(-8px);
+border-color: rgba(255,255,255,0.5);
+box-shadow: 0 0 28px rgba(255,255,255,0.2);
+}
+
+footer {
+text-align: center;
+padding: 30px 0;
+opacity: 0.6;
+font-size: 0.9rem;
+}
