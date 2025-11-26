@@ -1,55 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DripLab – AI Fashion Intelligence</title>
-    <link rel="stylesheet" href="styles.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DripLab – AI Fashion Intelligence</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <!-- FLOATING GLASS NAVBAR -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <div class="nav-brand">DRIPLAB</div>
+      <button class="nav-toggle" aria-label="Toggle navigation">
+        ☰
+      </button>
+      <ul class="nav-links">
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#dripscore">DripScore™</a></li>
+        <li><a href="#closet">Smart Closet</a></li>
+        <li><a href="#early-access">Early Access</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <!-- HERO SECTION -->
-    <header class="hero">
-        <h1 class="drip-title">DRIPLAB</h1>
-        <p class="subtitle">Your AI-Powered Closet Companion</p>
-        <a href="#" class="cta">Get Early Access</a>
-    </header>
+  <!-- HERO SECTION -->
+  <header id="hero" class="hero section fade-in">
+    <h1 class="drip-title">DRIPLAB</h1>
+    <p class="subtitle">Your AI-Powered Closet Companion</p>
+    <p class="hero-tagline">
+      Scan your wardrobe. Score your outfits. Unlock your signature drip.
+    </p>
+    <a href="#early-access" class="cta">Get Early Access</a>
+  </header>
 
-    <!-- FEATURES SECTION -->
-    <section class="features">
-        <h2>Why DripLab?</h2>
+  <!-- WHY DRIPLAB -->
+  <section id="features" class="features section fade-in">
+    <h2>Why DripLab?</h2>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>Smart Closet</h3>
+        <p>Automatically organize, classify, and visualize every item you own.</p>
+      </div>
+      <div class="feature-card">
+        <h3>DripScore™</h3>
+        <p>Advanced AI rates any outfit with precision style intelligence.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Outfit Builder</h3>
+        <p>Create perfect looks using your wardrobe — or add new pieces instantly.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Trends + Insights</h3>
+        <p>Personalized fashion analytics built around your unique style DNA.</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="feature-grid">
-
-            <div class="feature-card">
-                <h3>Smart Closet</h3>
-                <p>Automatically organize, classify, and visualize every item you own.</p>
-            </div>
-
-            <div class="feature-card">
-                <h3>DripScore™</h3>
-                <p>Advanced AI rates any outfit with precision style intelligence.</p>
-            </div>
-
-            <div class="feature-card">
-                <h3>Outfit Builder</h3>
-                <p>Create perfect looks using your wardrobe — or add new pieces instantly.</p>
-            </div>
-
-            <div class="feature-card">
-                <h3>Trends + Insights</h3>
-                <p>Personalized fashion analytics built around your unique style DNA.</p>
-            </div>
-
+  <!-- DRIPSCORE ENGINE -->
+  <section id="dripscore" class="section split-section fade-in">
+    <div class="split-copy">
+      <h2>DripScore™ Engine</h2>
+      <p>
+        DripLab’s scoring engine blends computer vision, color theory, and trend
+        data to analyze silhouettes, palettes, and proportions — then returns a
+        simple score and clear, easy-to-act-on suggestions.
+      </p>
+      <ul class="pill-list">
+        <li>Instant outfit rating</li>
+        <li>Style notes you can actually use</li>
+        <li>Recommendations pulled from your own closet first</li>
+      </ul>
+    </div>
+    <div class="split-visual holo-card">
+      <div class="score-badge">DripScore™ 92</div>
+      <p class="score-caption">“Street glam, balanced & bold.”</p>
+      <div class="score-bars">
+        <div class="bar">
+          <span>Color Harmony</span>
+          <div><span style="width: 90%"></span></div>
         </div>
-    </section>
+        <div class="bar">
+          <span>Silhouette</span>
+          <div><span style="width: 80%"></span></div>
+        </div>
+        <div class="bar">
+          <span>Occasion Fit</span>
+          <div><span style="width: 95%"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <!-- FOOTER -->
-    <footer>
-        <p>© 2025 DripLab. All rights reserved.</p>
-    </footer>
+  <!-- SMART CLOSET + OUTFIT BUILDER -->
+  <section id="closet" class="section split-section reverse fade-in">
+    <div class="split-visual holo-card grid-preview">
+      <div class="item-tile">Denim Jacket</div>
+      <div class="item-tile">Opal Heels</div>
+      <div class="item-tile">Charcoal Trousers</div>
+      <div class="item-tile">Iridescent Bag</div>
+    </div>
+    <div class="split-copy">
+      <h2>Smart Closet & Outfit Builder</h2>
+      <p>
+        Snap a pic, tag the vibe, and DripLab builds you a living, breathing
+        closet that never forgets what you own.
+      </p>
+      <ul class="pill-list">
+        <li>Upload items in seconds</li>
+        <li>Filter by vibe, color, season, or occasion</li>
+        <li>Auto-generated looks using what you already own</li>
+      </ul>
+    </div>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- MEET THE APP -->
+  <section class="section meet-app fade-in">
+    <h2>Meet the App</h2>
+    <div class="app-grid">
+      <div class="app-card">
+        <h3>Home Dashboard</h3>
+        <p>Daily DripScore, outfit suggestions, and what’s trending for you.</p>
+      </div>
+      <div class="app-card">
+        <h3>Closet View</h3>
+        <p>Swipe through your wardrobe like a curated digital boutique.</p>
+      </div>
+      <div class="app-card">
+        <h3>Looks Library</h3>
+        <p>Save, rate, and remix your favorite fits — never forget a fire combo.</p>
+      </div>
+      <div class="app-card">
+        <h3>Insights</h3>
+        <p>See what you actually wear, what you ignore, and where to invest next.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- EARLY ACCESS FORM -->
+  <section id="early-access" class="section early-access fade-in">
+    <h2>Get Early Access</h2>
+    <p class="early-copy">
+      Be the first to try DripLab and help shape the future of AI-powered style.
+    </p>
+
+    <!-- For now this uses mailto. You can change the email address below. -->
+    <form
+      class="early-form"
+      id="early-form"
+      action="mailto:hello@driplab.app"
+      method="post"
+      enctype="text/plain"
+    >
+      <input
+        type="email"
+        name="email"
+        id="email"
+        placeholder="Enter your best email"
+        required
+      />
+      <button type="submit">Join the Waitlist</button>
+      <p class="form-message" id="form-message"></p>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 DripLab. All rights reserved.</p>
+    <p class="footer-links">
+      <a href="#hero">Back to top</a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
