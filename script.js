@@ -56,3 +56,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("signupForm");
+  const emailInput = document.getElementById("emailInput");
+  const message = document.getElementById("signupMessage");
+
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    message.textContent = "Sending...";
+    message.style.color = "#ffffffb0";
+
+    const email = emailInput.value.trim();
+
+    const response = await fetch("/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email }),
+    });
+
+    if (response.ok) {
+      message.textContent = "🎉 You're on the list!";
+      message.style.color = "#8affc1";
+      emailInput.value = "";
+    } else {
+      message.textContent = "Something went wrong. Try again.";
+      message.style.color = "#ff8b8b";
+    }
+  });
+});
