@@ -146,24 +146,16 @@
     </p>
 
     <!-- For now this uses mailto. You can change the email address below. -->
-    <form
-      class="early-form"
-      id="early-form"
-      action="mailto:hello@driplab.app"
-      method="post"
-      enctype="text/plain"
-    >
-      <input
-        type="email"
-        name="email"
-        id="email"
-        placeholder="Enter your best email"
-        required
-      />
-      <button type="submit">Join the Waitlist</button>
-      <p class="form-message" id="form-message"></p>
-    </form>
-  </section>
+ <form id="signupForm">
+  <input 
+    type="email" 
+    id="emailInput" 
+    placeholder="Enter your best email"
+    required
+  />
+  <button type="submit">Join the Waitlist</button>
+  <p id="signupMessage"></p>
+</form>
 
   <!-- FOOTER -->
   <footer class="footer">
