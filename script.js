@@ -1,88 +1,59 @@
-console.log("DripLab site loaded successfully ✨🔥");
+// script.js — FINAL WORKING VERSION
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Mobile nav toggle
-  const toggle = document.querySelector(".nav-toggle");
-  const navLinks = document.querySelector(".nav-links");
+  console.log("DripLab script loaded ✨");
 
-  if (toggle && navLinks) {
-    toggle.addEventListener("click", () => {
-      navLinks.classList.toggle("open");
-    });
-
-    navLinks.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-      });
-    });
-  }
-
-  // Smooth scrolling for in-page links
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    anchor.addEventListener("click", (e) => {
-      const targetId = anchor.getAttribute("href");
-      const target = document.querySelector(targetId);
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: "smooth" });
-      }
-    });
-  });
-
-  // Fade-in on scroll
-  const faders = document.querySelectorAll(".fade-in");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-
-  faders.forEach((el) => observer.observe(el));
-
-  // Early access form message (with mailto action)
-  const form = document.getElementById("early-form");
-  const message = document.getElementById("form-message");
-
-  if (form && message) {
-    form.addEventListener("submit", () => {
-      // Let mailto handle the actual send, just show a friendly note.
-      message.textContent = "Opening your email app… if nothing happens, email us at hello@driplab.app 💖";
-    });
-  }
-});
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("signupForm");
+  const form = document.getElementById("earlyAccessForm");
   const emailInput = document.getElementById("emailInput");
-  const message = document.getElementById("signupMessage");
+  const button = document.getElementById("joinButton");
+  const messageBox = document.getElementById("messageBox");
+
+  if (!form) {
+    console.error("❌ Form not found on the page.");
+    return;
+  }
 
   form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    message.textContent = "Sending...";
-    message.style.color = "#ffffffb0";
 
     const email = emailInput.value.trim();
-
-    const response = await fetch("/api/subscribe", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
-
-    if (response.ok) {
-      message.textContent = "🎉 You're on the list!";
-      message.style.color = "#8affc1";
-      emailInput.value = "";
-    } else {
-      message.textContent = "Something went wrong. Try again.";
-      message.style.color = "#ff8b8b";
+    if (!email) {
+      showMessage("Please enter a valid email.", "error");
+      return;
     }
-  });
-});
 
-// trigger redeploy
+    button.disabled = true;
+    button.innerText = "Joining…";
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        console.error("❌ Server error:", data);
+        showMessage("Something went wrong. Try again.", "error");
+      } else {
+        console.log("✨ Success:", data);
+        showMessage("You’re officially on the waitlist! 💜", "success");
+
+        form.reset();
+      }
+    } catch (err) {
+      console.error("❌ Network error:", err);
+      showMessage("Network error. Try again.", "error");
+    }
+
+    button.disabled = false;
+    button.innerText = "Join the Waitlist";
+  });
+
+  function showMessage(msg, type) {
+    messageBox.innerText = msg;
+    messageBox.className = type; // CSS styling handled by type
+  }
+});
