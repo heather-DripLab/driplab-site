@@ -1,59 +1,39 @@
-// script.js — FINAL WORKING VERSION
+console.log("DripLab script running…");
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("DripLab script loaded ✨");
+document.getElementById("scrollToForm").addEventListener("click", () => {
+  document.getElementById("signup").scrollIntoView({ behavior: "smooth" });
+});
 
-  const form = document.getElementById("earlyAccessForm");
-  const emailInput = document.getElementById("emailInput");
-  const button = document.getElementById("joinButton");
-  const messageBox = document.getElementById("messageBox");
+document.getElementById("waitlistForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-  if (!form) {
-    console.error("❌ Form not found on the page.");
-    return;
-  }
+  const email = document.getElementById("emailInput").value.trim();
+  const source = document.getElementById("sourceInput").value;
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  const successMsg = document.getElementById("successMessage");
+  const errorMsg = document.getElementById("errorMessage");
 
-    const email = emailInput.value.trim();
-    if (!email) {
-      showMessage("Please enter a valid email.", "error");
-      return;
+  successMsg.classList.add("hidden");
+  errorMsg.classList.add("hidden");
+
+  try {
+    const response = await fetch("/api/subscribe", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, source })
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      successMsg.classList.remove("hidden");
+      document.getElementById("emailInput").value = "";
+    } else {
+      console.error("Airtable error:", data);
+      errorMsg.classList.remove("hidden");
     }
-
-    button.disabled = true;
-    button.innerText = "Joining…";
-
-    try {
-      const response = await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        console.error("❌ Server error:", data);
-        showMessage("Something went wrong. Try again.", "error");
-      } else {
-        console.log("✨ Success:", data);
-        showMessage("You’re officially on the waitlist! 💜", "success");
-
-        form.reset();
-      }
-    } catch (err) {
-      console.error("❌ Network error:", err);
-      showMessage("Network error. Try again.", "error");
-    }
-
-    button.disabled = false;
-    button.innerText = "Join the Waitlist";
-  });
-
-  function showMessage(msg, type) {
-    messageBox.innerText = msg;
-    messageBox.className = type; // CSS styling handled by type
+  } catch (err) {
+    console.error("Network error:", err);
+    errorMsg.classList.remove("hidden");
   }
 });
