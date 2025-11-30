@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
+<body id="top">
   <!-- NAVBAR -->
   <header class="navbar">
     <div class="logo">
@@ -16,7 +16,7 @@
     <button class="menu-btn" id="menuToggle">☰</button>
   </header>
 
-  <!-- HERO SECTION -->
+  <!-- HERO -->
   <section class="hero">
     <h1 class="hero-title logo-gradient">DRIPLAB</h1>
     <p class="hero-subtitle">Your AI-Powered Closet Companion</p>
@@ -25,11 +25,11 @@
     <button id="scrollToForm" class="cta-btn">Get Early Access</button>
   </section>
 
-  <!-- SECTIONS (unchanged from your site, just copy below if needed) -->
+  <!-- WHY SECTION -->
   <section class="why">
     <h2 class="section-title logo-gradient">Why DripLab?</h2>
 
-    <div class="card"> 
+    <div class="card">
       <h3>Smart Closet</h3>
       <p>Automatically organize, classify, and visualize every item you own.</p>
     </div>
@@ -45,14 +45,13 @@
     </div>
   </section>
 
-  <!-- SIGNUP FORM SECTION -->
+  <!-- FORM -->
   <section class="signup-section" id="signup">
     <h2 class="section-title logo-gradient">Get Early Access</h2>
     <p class="section-description">
       Be the first to try DripLab and help shape the future of AI-powered style.
     </p>
 
-    <!-- FORM -->
     <form id="waitlistForm">
       <input 
         type="email" 
@@ -61,12 +60,10 @@
         required 
       />
 
-      <!-- hidden field for source tag (optional but useful) -->
-      <input type="hidden" id="sourceInput" value="LandingPage">
+      <input type="hidden" id="sourceInput" value="LandingPage" />
 
       <button type="submit" class="cta-btn wide">Join the Waitlist</button>
 
-      <!-- Success & error messages -->
       <p id="successMessage" class="success hidden">You're in! Check your email 🎉</p>
       <p id="errorMessage" class="error hidden">Something went wrong. Try again.</p>
     </form>
