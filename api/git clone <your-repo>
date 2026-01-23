@@ -1,0 +1,5 @@
+git clone <your-repo>
+cd <project>
+npm install
+npm run build
+npx cap sync ios
