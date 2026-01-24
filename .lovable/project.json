@@ -1,0 +1,31 @@
+{
+  "name": "driplab-site",
+  "description": "DripLab - Your AI-Powered Closet Companion Landing Page",
+  "type": "static-site",
+  "version": "1.0.0",
+  "framework": "vanilla",
+  "features": [
+    "Email waitlist signup",
+    "Airtable integration",
+    "Responsive design",
+    "Modern gradient styling"
+  ],
+  "entrypoint": "index.html",
+  "api": {
+    "provider": "serverless",
+    "endpoints": [
+      {
+        "path": "/api/subscribe",
+        "method": "POST",
+        "description": "Email subscription endpoint"
+      }
+    ]
+  },
+  "environment": {
+    "required": [
+      "AIRTABLE_BASE_ID",
+      "AIRTABLE_TABLE_ID",
+      "AIRTABLE_API_KEY"
+    ]
+  }
+}
