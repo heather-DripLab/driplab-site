@@ -65,6 +65,9 @@ This project is built with:
 
 ```
 .
+├── .lovable/
+│   ├── project.json    # Lovable project metadata
+│   └── system.md       # Project documentation and guidelines
 ├── index.html          # Main landing page
 ├── styles.css          # Stylesheet
 ├── script.js           # JavaScript functionality
